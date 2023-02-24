@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework import status
+from drf_spectacular.utils import extend_schema
 
 import logging, json
 
@@ -19,6 +20,7 @@ all across the board.
 """
 
 # Create your views here.
+@extend_schema(responses=CompanySerializer)
 @transaction.atomic
 @api_view(['POST'])
 def add_company(request):
@@ -36,6 +38,7 @@ def add_company(request):
 
         return Response(serializer.errors, status=status.HTTP_406_NOT_ACCEPTABLE)
 
+@extend_schema(responses=CompanyLoginSerializer)
 @api_view(['GET'])
 def company_login(request):
     serializer = CompanyLoginSerializer(data=request.data)
@@ -52,6 +55,7 @@ def company_login(request):
         return Response(serializer.data, status=status.HTTP_404_NOT_FOUND)
 
 class EmployeeView(APIView):
+    @extend_schema(responses=EmployeeCreateSerializer)
     @transaction.atomic
     def post(self, request, format=None):
         serializer = EmployeeCreateSerializer(data=request.data)
@@ -70,6 +74,7 @@ class EmployeeView(APIView):
 
             return Response(serializer.errors, status=status.HTTP_406_NOT_ACCEPTABLE)
     
+    @extend_schema(responses=EmployeeSerializer)
     def get(self, request, id, format=None):
         try:
             employee = Employee.objects.get(id)

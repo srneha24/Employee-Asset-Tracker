@@ -20,8 +20,8 @@ class Delegation(models.Model):
     delegated_condition = models.TextField(null=False, blank=False)
     delegated_condition_image = models.ImageField(upload_to="images/delegated_asset/")
     assigned_return_time = models.DateTimeField(null=False, blank=False)
-    actual_return_time = models.DateTimeField(null=False, blank=False)
-    returned_condition = models.TextField(null=False, blank=False)
+    actual_return_time = models.DateTimeField(null=True, blank=True, default=None)
+    returned_condition = models.TextField(null=True, blank=True, default=None)
     returned_condition_image = models.ImageField(upload_to="images/returned_asset/")
 
     class Meta:

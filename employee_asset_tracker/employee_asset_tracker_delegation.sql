@@ -25,14 +25,16 @@ DROP TABLE IF EXISTS `delegation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `delegation` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `employee` int NOT NULL,
   `asset` int NOT NULL,
   `delegation_time` timestamp NOT NULL,
   `delegated_condition` text,
+  `delegated_condition_image` varchar(255) DEFAULT NULL,
   `assigned_return_time` timestamp NOT NULL,
-  `actual_return_time` timestamp NOT NULL,
+  `actual_return_time` timestamp NULL DEFAULT NULL,
   `returned_condition` text,
+  `returned_condition_image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `employee` (`employee`),
   KEY `asset` (`asset`),
@@ -50,4 +52,4 @@ CREATE TABLE `delegation` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-24  6:12:04
+-- Dump completed on 2023-02-25  1:32:55

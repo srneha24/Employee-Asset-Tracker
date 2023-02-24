@@ -1,0 +1,162 @@
+openapi: 3.0.3
+info:
+  title: Employee Asset Tracker
+  version: 0.0.0
+paths:
+  /asset/asset_log:
+    get:
+      operationId: asset_asset_log_retrieve
+      tags:
+      - asset
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /asset/asset_status:
+    get:
+      operationId: asset_asset_status_retrieve
+      tags:
+      - asset
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /asset/new_asset:
+    post:
+      operationId: asset_new_asset_create
+      tags:
+      - asset
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /asset/new_delegation:
+    post:
+      operationId: asset_new_delegation_create
+      tags:
+      - asset
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /asset/update_asset_delegation/{id}/:
+    patch:
+      operationId: asset_update_asset_delegation_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - asset
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /company/employee:
+    get:
+      operationId: company_employee_retrieve
+      tags:
+      - company
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: company_employee_create
+      tags:
+      - company
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /company/employee/{id}/:
+    get:
+      operationId: company_employee_retrieve_2
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - company
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+    post:
+      operationId: company_employee_create_2
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - company
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /company/login:
+    get:
+      operationId: company_login_retrieve
+      tags:
+      - company
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /company/new_company:
+    post:
+      operationId: company_new_company_create
+      tags:
+      - company
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
