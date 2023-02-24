@@ -1,6 +1,18 @@
+# IDE Files
 .vscode
+
+# Virtual Environment
 env/
-.env
+
+# Log
+*.log
+
+# Cache
 __pycache__/
 migrations/
+
+# Secret
+.env
+
+# Miscelleneous
 Project Instructions.txt
